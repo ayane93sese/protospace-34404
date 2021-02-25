@@ -30,12 +30,12 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    prototype = Prototype.find(params[:id])
-    prototype.update(prototype_params)
-    if prototype.save
+    @prototype = Prototype.find(params[:id])
+    @prototype.update(prototype_params)
+    if @prototype.save
       redirect_to prototype_path
     else
-      render :edit
+      render "edit"
     end
   end
 
